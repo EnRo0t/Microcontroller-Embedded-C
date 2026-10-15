@@ -1,0 +1,20 @@
+18:43:31 **** Incremental Build of configuration Debug for project 001HelloWorld ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411CEUx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:22:4: warning: #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use." [-Wcpp]
+   22 |   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+      |    ^~~~~~~
+arm-none-eabi-gcc -o "001HelloWorld.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/enroot/Proyectos/Embedded/Workspace/target/001HelloWorld/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HelloWorld.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001HelloWorld.elf
+ 
+arm-none-eabi-size  001HelloWorld.elf 
+arm-none-eabi-objdump -h -S 001HelloWorld.elf  > "001HelloWorld.list"
+   text	   data	    bss	    dec	    hex	filename
+   3408	     92	   1900	   5400	   1518	001HelloWorld.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001HelloWorld.list
+ 
+
+18:43:32 Build Finished. 0 errors, 1 warnings. (took 191ms)
+
