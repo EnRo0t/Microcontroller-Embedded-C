@@ -39,10 +39,13 @@ int main(void) {
     /* a. Limpiamos los bits 27 y 26 poniendolos a 0 */
     *pPortCModReg &= 0xF3FFFFFF;
     /* b. Seteamos el bit 27 a 1 */
-    *pPortCModReg |= 0x08000000;
+    *pPortCModReg |= 0x04000000;
 
-    /* Setear el bit 13 del output data register en 0 */
-    *pPortCOutDatReg &= 0xEFFF;
+    /* Setear el bit 13 del output data register en 0 (Encender)*/
+    *pPortCOutDatReg &= ~0x2000;
+
+    /* Setear el bit 13 del output data register en 1 (apagar) */
+    *pPortCOutDatReg |= 0x2000;
 
     while(1);
 }
