@@ -1,43 +1,71 @@
-11:39:18 **** Clean-only build of configuration Debug for project 003Add ****
+11:46:20 **** Clean-only build of configuration Debug for project led_on ****
 make -j12 clean 
 rm -rf ./Startup/startup_stm32f411ceux.d ./Startup/startup_stm32f411ceux.o
-rm -rf ./Src/main.cyclo ./Src/main.d ./Src/main.o ./Src/main.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
-rm -rf 003Add.elf 003Add.list 003Add.map default.size.stdout
+rm -rf ./Src/main.cyclo ./Src/main.d ./Src/main.o ./Src/main.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+rm -rf default.size.stdout led_on.elf led_on.list led_on.map
  
-11:41:02 **** Build of configuration Debug for project 003Add ****
+11:46:20 **** Build of configuration Debug for project led_on ****
 make -j12 all 
 arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f411ceux.d" -MT"Startup/startup_stm32f411ceux.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f411ceux.o" "../Startup/startup_stm32f411ceux.s"
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411CEUx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
 arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411CEUx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
-arm-none-eabi-gcc -o "003Add.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/enroot/Proyectos/Embedded/Workspace/target/003Add/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="003Add.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 003Add.elf
+arm-none-eabi-gcc -o "led_on.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/enroot/Proyectos/Embedded/Workspace/target/led_on/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="led_on.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: led_on.elf
  
-arm-none-eabi-size  003Add.elf 
-arm-none-eabi-objdump -h -S 003Add.elf  > "003Add.list"
+arm-none-eabi-size  led_on.elf 
+arm-none-eabi-objdump -h -S led_on.elf  > "led_on.list"
    text	   data	    bss	    dec	    hex	filename
-   6036	    108	   2076	   8220	   201c	003Add.elf
+   3260	    100	   2068	   5428	   1534	led_on.elf
 Finished building: default.size.stdout
  
-Finished building: 003Add.list
+Finished building: led_on.list
  
-11:41:02 **** Incremental Build of configuration Debug for project 003Add ****
+11:46:28 **** Incremental Build of configuration Debug for project led_on ****
 make -j12 all 
-arm-none-eabi-size  003Add.elf 
+arm-none-eabi-size  led_on.elf 
    text	   data	    bss	    dec	    hex	filename
-   6036	    108	   2076	   8220	   201c	003Add.elf
+   3260	    100	   2068	   5428	   1534	led_on.elf
 Finished building: default.size.stdout
  
-14:11:56 **** Incremental Build of configuration Debug for project 003Add ****
+11:46:57 **** Incremental Build of configuration Debug for project led_on ****
 make -j12 all 
-arm-none-eabi-size  003Add.elf 
+arm-none-eabi-size  led_on.elf 
    text	   data	    bss	    dec	    hex	filename
-   6036	    108	   2076	   8220	   201c	003Add.elf
+   3260	    100	   2068	   5428	   1534	led_on.elf
 Finished building: default.size.stdout
  
-14:41:50 **** Incremental Build of configuration Debug for project 003Add ****
+11:47:29 **** Incremental Build of configuration Debug for project led_on ****
 make -j12 all 
-arm-none-eabi-size  003Add.elf 
+arm-none-eabi-size  led_on.elf 
    text	   data	    bss	    dec	    hex	filename
-   6036	    108	   2076	   8220	   201c	003Add.elf
+   3260	    100	   2068	   5428	   1534	led_on.elf
+Finished building: default.size.stdout
+ 
+11:58:48 **** Incremental Build of configuration Debug for project led_on ****
+make -j12 all 
+arm-none-eabi-size  led_on.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3260	    100	   2068	   5428	   1534	led_on.elf
+Finished building: default.size.stdout
+ 
+12:00:22 **** Incremental Build of configuration Debug for project led_on ****
+make -j12 all 
+arm-none-eabi-size  led_on.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3260	    100	   2068	   5428	   1534	led_on.elf
+Finished building: default.size.stdout
+ 
+12:00:43 **** Incremental Build of configuration Debug for project led_on ****
+make -j12 all 
+arm-none-eabi-size  led_on.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3260	    100	   2068	   5428	   1534	led_on.elf
+Finished building: default.size.stdout
+ 
+12:10:42 **** Incremental Build of configuration Debug for project led_on ****
+make -j12 all 
+arm-none-eabi-size  led_on.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3260	    100	   2068	   5428	   1534	led_on.elf
 Finished building: default.size.stdout
  

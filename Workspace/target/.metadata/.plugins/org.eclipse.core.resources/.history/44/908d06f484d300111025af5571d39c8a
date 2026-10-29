@@ -17,15 +17,26 @@
  */
 
 #include <stdio.h>
+#include <stdint.h>
 
+int main(void) {
+    uint32_t *pClkCtrlReg = (uint32_t*)0x40023830; /* Puntero del RCC */
+    uint32_t *pPortCModReg = (uint32_t*)0x40020800; /* Puntero del mode register */
+    uint32_t *pPortCOutDatReg = (uint32_t*)0x40020814; /* Puntero del output data register */
 
-int main(void)
-{
-	printf("El tamaño de un char es: %d\n", sizeof(char));
-	printf("El tamaño de un int es: %d\n", sizeof(int));
-	printf("El tamaño de un long es: %d\n", sizeof(long));
-	printf("El tamaño de un long long es: %d\n", sizeof(long long));
-	printf("El tamaño de un double es: %d\n", sizeof(double));
-    /* Loop forever */
-	for(;;);
+    /* Activar reloj del periférico GPIOC en AHB1ENR  */
+
+    *pClkCtrlReg |= 0x04;
+
+    /* Poner el PIN en modo output *
+
+    /* a. Limpiamos los bits 27 y 26 poniendolos a 0 */
+    *pPortCModReg &= 0xF3FFFFFF;
+    /* b. Seteamos el bit 27 a 1 */
+    *pPortCModReg |= 0x08000000;
+
+    /* Setear el bit 13 del output data register en 0 */
+    *pPortCOutDatReg &= 0xEFFF;
+
+    while(1);
 }
